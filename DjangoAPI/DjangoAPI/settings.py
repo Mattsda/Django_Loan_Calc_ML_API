@@ -28,7 +28,7 @@ SECRET_KEY = 'i3j@=6n2zidey60(p^w$c3mv(4_3n(*2bsi1pdk@oqs#6$+(=y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://ah-ml-api-loan-calculator.herokuapp.com/', '.herokuapp.com']
+ALLOWED_HOSTS = ['https://ah-ml-api-loan-calculator.herokuapp.com', '.herokuapp.com']
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
