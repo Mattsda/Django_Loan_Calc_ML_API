@@ -14,6 +14,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 #python manage.py runserver --nothreading --noreload
 
 import os
+import django_heroku
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,9 +29,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'i3j@=6n2zidey60(p^w$c3mv(4_3n(*2bsi1pdk@oqs#6$+(=y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://ah-ml-api-loan-calculator.herokuapp.com', '.herokuapp.com']
+ALLOWED_HOSTS = []
+
+#ALLOWED_HOSTS = ['https://ah-ml-api-loan-calculator.herokuapp.com', '.herokuapp.com']
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -37,6 +42,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -58,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'DjangoAPI.urls'
@@ -147,3 +155,6 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.FormParser',
     )
 }
+
+
+django_heroku.settings(locals())
