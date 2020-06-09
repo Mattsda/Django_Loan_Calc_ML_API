@@ -26,9 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'i3j@=6n2zidey60(p^w$c3mv(4_3n(*2bsi1pdk@oqs#6$+(=y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ah-ml-api-loan-calculator.herokuapp.com/']
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Application definition
